@@ -1,4 +1,4 @@
-# ebean-enhance-plugin v3.0.0
+# ebean-enhance-plugin v4.0.0
 
 > A gradle plugin for enhancing ebean entities.
 
@@ -7,7 +7,7 @@
 ```
 plugins {
   id 'java'
-  id 'com.github.kt3k.ebean.enhance' version '3.0.0'
+  id 'com.github.kt3k.ebean.enhance' version '4.0.0'
 }
 
 ebeanEnhance {
@@ -27,7 +27,7 @@ The package to enhance (required)
 
 ## agentVersion
 
-The version of `org.avaje.ebeanorm:avaje-ebeanorm-agent` module (default `4.9.1`)
+The version of `io.ebean:ebean-agent` module (default `11.5.1`) for 11.5.+ enhancement
 
 ## transformArgs
 
@@ -39,5 +39,6 @@ MIT
 
 # History
 
+- 2017-12-22   v4.0.0   Bumped Ebean depedencies (agent from v10.1.1 to v11.5.1)
 - 2016-12-19   v3.0.0   Update Ebean deps.
 - 2016-04-17   v2.0.5   Enhance classes under the test directory.

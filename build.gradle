@@ -18,7 +18,7 @@ plugins {
 apply plugin: 'kotlin'
 
 group = 'org.kt3k'
-version = '3.0.0'
+version = '4.0.0'
 
 repositories {
   mavenCentral()

@@ -24,7 +24,7 @@ public open class Extension {
   /**
    * Ebean enhance agent version.
    */
-  var agentVersion = "10.1.1"
+  var agentVersion = "11.5.1"
 
   /**
    *
