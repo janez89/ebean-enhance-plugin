@@ -13,6 +13,16 @@ public open class Extension {
   var packages = ""
 
   /**
+   * Main class path
+   */
+  var mainClassPath = ""
+
+  /**
+   * Test class path
+   */
+  var testClassPath = ""
+
+  /**
    * Ebean enhance agent group id.
    */
   var agentGroupId = "io.ebean"

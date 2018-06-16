@@ -3,6 +3,7 @@ package org.kt3k.ebean.enhance
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.plugins.JavaPlugin
+import org.gradle.api.tasks.SourceSetContainer
 
 const val EXTENSION_NAME = "ebeanEnhance"
 const val CONFIGURATION_NAME = "ebeanEnhance"
@@ -39,8 +40,12 @@ public class Plugin : org.gradle.api.Plugin<Project> {
     taskMain.setProperty("antTaskName", ANT_MAIN_TASK_NAME)
     taskTest.setProperty("antTaskName", ANT_TEST_TASK_NAME)
 
-    taskMain.setProperty("classFilePath", MAIN_CLASS_FILE_PATH)
-    taskTest.setProperty("classFilePath", TEST_CLASS_FILE_PATH)
+    //(project.property("sourceSets") as SourceSetContainer).getByName("main").resources.sourceDirectories // TODO: dynamic detection
+    val mainClassFilePath = if (!ext(project).mainClassPath.isEmpty()) ext(project).mainClassPath else MAIN_CLASS_FILE_PATH
+    val testClassFilePath = if (!ext(project).testClassPath.isEmpty()) ext(project).testClassPath else TEST_CLASS_FILE_PATH
+
+    taskMain.setProperty("classFilePath", mainClassFilePath)
+    taskTest.setProperty("classFilePath", testClassFilePath)
 
     (project.property("classes") as Task).dependsOn(taskMain)
     (project.property("testClasses") as Task).dependsOn(taskTest)

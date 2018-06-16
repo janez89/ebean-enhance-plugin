@@ -7,11 +7,26 @@
 ```
 plugins {
   id 'java'
-  id 'com.github.kt3k.ebean.enhance' version '4.0.0'
+  id 'com.github.kt3k.ebean.enhance' version '4.0.1'
 }
 
 ebeanEnhance {
   packages = 'com.example.models.**'
+}
+```
+
+Or more parameters
+
+```
+plugins {
+  id 'java'
+  id 'com.github.kt3k.ebean.enhance' version '4.0.1'
+}
+
+ebeanEnhance {
+  packages = 'com.example.models.**'
+  mainClassPath = 'classes/kotlin/main'
+  testClassPath = 'classes/kotlin/test'
 }
 ```
 
@@ -39,6 +54,7 @@ MIT
 
 # History
 
+- 2018-06-16   v4.0.1   added classPath parameters. (now works with spring boot 2 and kotlin)
 - 2017-12-22   v4.0.0   Bumped Ebean depedencies (agent from v10.1.1 to v11.5.1)
 - 2016-12-19   v3.0.0   Update Ebean deps.
 - 2016-04-17   v2.0.5   Enhance classes under the test directory.
