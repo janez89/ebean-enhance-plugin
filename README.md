@@ -30,6 +30,27 @@ ebeanEnhance {
 }
 ```
 
+On the fly from my repository (Janez):
+
+```
+buildscript {
+	repositories {
+        maven { url "https://jitpack.io" }
+	}
+	dependencies {
+		classpath("com.github.janez89:ebean-enhance-plugin:v4.0.1")
+	}
+}
+
+apply plugin: "com.github.kt3k.ebean.enhance"
+
+ebeanEnhance {
+  packages = 'com.example.models.**'
+  mainClassPath = 'classes/kotlin/main'
+  testClassPath = 'classes/kotlin/test'
+}
+```
+
 The above automatically enhances the ebean models under the `com.example.models` package.
 
 More technically, `com.github.kt3k.ebean.enhance` plugins creates `ebeanEnhace` task in your project and hook it to `classes` task of `java` plugin.
